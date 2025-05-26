@@ -1,2 +1,415 @@
 # Resume
 The Official Resume
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaibhav Sharma - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the space/nautical theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Dark background with subtle star-like texture */
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0; /* Light gray text for contrast */
+        }
+        .resume-container {
+            max-width: 1000px; /* Max width for the resume content */
+            margin: 2rem auto; /* Center the resume with margin */
+            background-color: #1a202c; /* Slightly lighter dark background for the content area */
+            border-radius: 1rem; /* Rounded corners for the main container */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow for a floating effect */
+            overflow: hidden; /* Ensure rounded corners apply to children */
+        }
+
+        .header-section {
+            /* Updated to a more professional and refined blue gradient */
+            background: linear-gradient(45deg, #1f3a68 0%, #2a528e 100%);
+            color: #ffffff; /* White text for header */
+            padding: 2.5rem 2rem; /* Ample padding */
+            border-bottom: 3px solid #4a77b8; /* Accent border */
+            position: relative;
+            overflow: hidden;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            animation: star-glow 15s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes star-glow {
+            0% { transform: rotate(0deg); opacity: 0.8; }
+            50% { transform: rotate(180deg); opacity: 0.6; }
+            100% { transform: rotate(360deg); opacity: 0.8; }
+        }
+
+        .section-title {
+            color: #63b3ed; /* Accent color for section titles */
+            border-bottom: 2px solid #4299e1; /* Underline for section titles */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600; /* Semi-bold */
+            display: flex;
+            align-items: center;
+            gap: 0.75rem; /* Space between icon and title */
+        }
+
+        .section-title svg {
+            color: #90cdf4; /* Lighter accent for icons */
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .icon-text {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #cbd5e0; /* Slightly lighter text for contact info */
+        }
+
+        .icon-text svg {
+            flex-shrink: 0; /* Prevent icon from shrinking */
+            width: 1.1rem;
+            height: 1.1rem;
+            color: #90cdf4; /* Accent color for small icons */
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-item::before, .education-item::before {
+            content: '•'; /* Bullet point for list items */
+            position: absolute;
+            left: 0;
+            color: #63b3ed; /* Accent color for bullets */
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: #90cdf4; /* Lighter accent for role/degree */
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item p, .education-item p {
+            color: #a0aec0; /* Slightly muted text for dates/location */
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item ul, .education-item ul {
+            list-style: none; /* Remove default list style */
+            padding-left: 0;
+        }
+
+        .experience-item ul li, .education-item ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.4rem;
+            color: #e2e8f0;
+        }
+
+        .experience-item ul li::before, .education-item ul li::before {
+            content: '–'; /* Custom dash for list items */
+            position: absolute;
+            left: 0;
+            color: #63b3ed; /* Accent color for dashes */
+        }
+
+        .skill-category {
+            margin-bottom: 1rem;
+        }
+
+        .skill-category h4 {
+            color: #90cdf4;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-category span {
+            background-color: #2a4365; /* Darker blue for skill tags */
+            color: #e2e8f0;
+            padding: 0.3rem 0.7rem;
+            border-radius: 0.5rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            font-size: 0.85rem;
+            border: 1px solid #4299e1; /* Subtle border */
+        }
+
+        .award-item {
+            margin-bottom: 0.75rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .award-item::before {
+            content: '★'; /* Star icon for awards */
+            position: absolute;
+            left: 0;
+            color: #f6ad55; /* Gold-like color for awards */
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        .certification-institution {
+            font-size: 0.85rem; /* Slightly smaller font size */
+            color: #f6ad55; /* Gold-like color for institutions */
+            text-shadow: 0 0 5px rgba(246, 173, 85, 0.7); /* Subtle gold glow */
+        }
+
+        .publication-item {
+            margin-bottom: 0.75rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .publication-item::before {
+            content: '•'; /* Bullet point for publications */
+            position: absolute;
+            left: 0;
+            color: #63b3ed;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 1rem;
+                padding: 0;
+            }
+            .main-content {
+                flex-direction: column; /* Stack columns on small screens */
+            }
+            .left-column, .right-column {
+                padding: 1.5rem;
+                width: 100%; /* Full width */
+            }
+            .left-column {
+                border-right: none; /* Remove border on small screens */
+                border-bottom: 2px solid #4299e1; /* Add bottom border */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="header-section text-center relative z-10">
+            <h1 class="text-4xl font-bold mb-2 tracking-wide">Vaibhav Sharma</h1>
+            <p class="text-lg font-light opacity-90 mb-4">
+                Terraforming the realm of the unknown in the light of science | An Aspiring Data Scientist | Available for Research Initiatives
+            </p>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+                <div class="icon-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <span>Inquiries.Vaibhav.Official@gmail.com</span>
+                </div>
+                <div class="icon-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    <a href="https://www.linkedin.com/in/vaibhav-s-data-science" target="_blank" class="hover:underline">LinkedIn Profile</a>
+                </div>
+                <div class="icon-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.44-.78-3.46 0 0-1 0-2 1.5-.22-.2-.45-.42-.67-.6-.95-.2-2-.32-3-.32-1 0-2.05.12-3 .32-.23.18-.46.4-.67.6C6 5 5 5 5 5c-.51 1.02-.86 2.21-.78 3.46 0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    <a href="https://github.com/Vaibhav-S-Pyxida" target="_blank" class="hover:underline">GitHub Profile</a>
+                </div>
+                <div class="icon-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M12 12.72a1 1 0 1 1 0-1.44 1 1 0 0 1 0 1.44Z"/><path d="M12 21.8c-.35-.12-2.17-1.12-3.88-2.83a15.79 15.79 0 0 1-3.48-4.78C2.02 11.23 2 9.27 2 7.26c0-4.05 1.9-6.04 6-6.04 2.68 0 4.29 1.13 6 2.87 1.71-1.74 3.32-2.87 6-2.87 4.1 0 6 2.01 6 6.04 0 2.01-.02 3.97-2.64 6.93a15.79 15.79 0 0 1-3.48 4.78c-1.71 1.71-3.53 2.71-3.88 2.83Z"/></svg>
+                    <span>Noida, Uttar Pradesh, India</span>
+                </div>
+            </div>
+        </header>
+        <div class="main-content flex flex-col md:flex-row p-6">
+            <div class="left-column w-full md:w-1/3 pr-0 md:pr-6 border-b md:border-b-0 md:border-r-2 border-blue-700 pb-6 md:pb-0 mb-6 md:mb-0">
+                <section class="mb-8">
+                    <h2 class="section-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-compass"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                        Summary
+                    </h2>
+                    <p class="text-sm leading-relaxed text-gray-300">
+                        Aspiring Data Scientist with a diverse skillset in project development, creative writing, event design, and public speaking. Proven ability to lead teams, manage complex projects, and achieve academic and competitive excellence. Committed to exploring the unknown through science and available for impactful research initiatives.
+                    </p>
+                    <p class="text-xs mt-3 text-gray-400 italic">
+                        For official requests or research opportunities, please contact via: <br class="md:hidden"/> <span class="font-semibold text-blue-300">Inquiries.VaibhavOfficial@gmail.com</span> (reply within 5 business days).
+                    </p>
+                </section>
+                <section class="mb-8">
+                    <h2 class="section-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="M9.9 10.8c-.3.1-.6.2-.9.2-.8 0-1.5-.7-1.5-1.5 0-.3.1-.6.2-.9L6.2 6.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l1.8 1.8c.3-.1.6-.2.9-.2.8 0 1.5.7 1.5 1.5 0 .3-.1.6-.2.9l1.8 1.8c.2.2.2.6 0 .8-.2.2-.6.2-.8 0L9.9 10.8Zm4.6-2.6c-.3.1-.6.2-.9.2-.8 0-1.5-.7-1.5-1.5 0-.3.1-.6.2-.9L10.8 4.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l1.8 1.8c.3-.1.6-.2.9-.2.8 0 1.5.7 1.5 1.5 0 .3-.1.6-.2.9l1.8 1.8c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-1.8-1.8Z"/><path d="M20.6 14.6c-.3.1-.6.2-.9.2-.8 0-1.5-.7-1.5-1.5 0-.3.1-.6.2-.9l-1.8-1.8c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l1.8 1.8c.3-.1.6-.2.9-.2.8 0 1.5.7 1.5 1.5 0 .3-.1.6-.2.9l1.8 1.8c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-1.8-1.8Z"/><path d="M14.6 20.6c-.3.1-.6.2-.9.2-.8 0-1.5-.7-1.5-1.5 0-.3.1-.6.2-.9l-1.8-1.8c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l1.8 1.8c.3-.1.6-.2.9-.2.8 0 1.5.7 1.5 1.5 0 .3-.1.6-.2.9l1.8 1.8c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-1.8-1.8Z"/></svg>
+                        Skills
+                    </h2>
+                    <div class="skill-category">
+                        <h4>Core Competencies</h4>
+                        <span>Research</span>
+                        <span>Creative Writing</span>
+                        <span>History</span>
+                        <span>Project Management</span>
+                        <span>Leadership</span>
+                        <span>Graphic Design</span>
+                        <span>Event Designing</span>
+                        <span>Public Speaking</span>
+                        <span>Cryptography</span>
+                        <span>Game Theory</span>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <span>English (Native/Bilingual)</span>
+                        <span>Hindi (Full Professional)</span>
+                        <span>Sanskrit (Professional Working)</span>
+                        <span>French (Limited Working)</span>
+                        <span>German (Limited Working)</span>
+                        <span>Spanish (Elementary)</span>
+                    </div>
+                </section>
+                <section class="mb-8">
+                    <h2 class="section-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="M9.9 10.8c-.3.1-.6.2-.9.2-.8 0-1.5-.7-1.5-1.5 0-.3.1-.6.2-.9L6.2 6.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l1.8 1.8c.3-.1.6-.2.9-.2.8 0 1.5.7 1.5 1.5 0 .3-.1.6-.2.9l1.8 1.8c.2.2.2.6 0 .8-.2.2-.6.2-.8 0L9.9 10.8Zm4.6-2.6c-.3.1-.6.2-.9.2-.8 0-1.5-.7-1.5-1.5 0-.3.1-.6.2-.9L10.8 4.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l1.8 1.8c.3-.1.6-.2.9-.2.8 0 1.5.7 1.5 1.5 0 .3-.1.6-.2.9l1.8 1.8c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-1.8-1.8Z"/><path d="M20.6 14.6c-.3.1-.6.2-.9.2-.8 0-1.5-.7-1.5-1.5 0-.3.1-.6.2-.9l-1.8-1.8c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l1.8 1.8c.3-.1.6-.2.9-.2.8 0 1.5.7 1.5 1.5 0 .3-.1.6-.2.9l1.8 1.8c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-1.8-1.8Z"/><path d="M14.6 20.6c-.3.1-.6.2-.9.2-.8 0-1.5-.7-1.5-1.5 0-.3.1-.6.2-.9l-1.8-1.8c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l1.8 1.8c.3-.1.6-.2.9-.2.8 0 1.5.7 1.5 1.5 0 .3-.1.6-.2.9l1.8 1.8c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-1.8-1.8Z"/></svg>
+                        Certifications
+                    </h2>
+                    <ul class="list-none pl-0">
+                        <li class="award-item text-sm">Data Management and Analytics <span class="certification-institution">— IIT Madras</span></li>
+                        <li class="award-item text-sm">Fourier Analysis | Non Credit Coursework <span class="certification-institution">— MIT</span></li>
+                        <li class="award-item text-sm">Database and AI+ML <span class="certification-institution">— Microsoft | Azure Cloud | AI | Partner</span></li>
+                    </ul>
+                </section>
+                <section class="mb-8">
+                    <h2 class="section-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-medal"><path d="M10 4.2L4.5 9.5l1.4 1.4L10 6.6l4.1 4.1 1.4-1.4L10 4.2z"/><path d="M12 11c-.73-.58-1.68-.9-2.75-.9-1.07 0-2.02.32-2.75.9-.73.58-1.12 1.35-1.25 2.15l-.42 2.5a2 2 0 0 0 1.9 2.3h7a2 2 0 0 0 1.9-2.3l-.42-2.5c-.13-.8-.52-1.57-1.25-2.15z"/><path d="M12 11c.73-.58 1.68-.9 2.75-.9 1.07 0 2.02.32 2.75.9.73.58 1.12 1.35 1.25 2.15l.42 2.5a2 2 0 0 1-1.9 2.3h-7c-1.15 0-1.99-.95-1.9-2.3l.42-2.5c.13-.8.52-1.57 1.25-2.15z"/></svg>
+                        Honors & Awards
+                    </h2>
+                    <ul class="list-none pl-0">
+                        <li class="award-item text-sm">Meritous Student Award</li>
+                        <li class="award-item text-sm">Academic Excellence (2013-2015, 2021-2023)</li>
+                        <li class="award-item text-sm">5x Class Rank 1 (2013, 2014, 2020, 2022, 2023)</li>
+                        <li class="award-item text-sm">Olympiad Wins (SOF, NSEA, SOC, IHO; under 30 rank IHO 2018)</li>
+                        <li class="award-item text-sm">Ranked 5th in Onspot English Poetry Competition (Genesis Global School)</li>
+                        <li class="award-item text-sm">Won 2 District Level Hindi Poetry Competitions (2022, 2024)</li>
+                        <li class="award-item text-sm">Secured Rank 2 in National Level Heritage Quiz (ASI)</li>
+                    </ul>
+                </section>
+            </div>
+            <div class="right-column w-full md:w-2/3 pl-0 md:pl-6">
+                <section class="mb-8">
+                    <h2 class="section-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.75-.75 1.042-1.67 1.38-2.02 1.86-1.86 3.48-2.37 3.96-2.65a2.14 2.14 0 0 0 0-3.02c-.28-.48-.79-2.1-2.65-3.96-.35-.34-1.27-.63-2.02-1.38-1.26-1.5-5-2-5-2s.5 3.74 2 5c.35.35.64 1.27 1.38 2.02 1.86 1.86 2.37 3.48 2.65 3.96a2.14 2.14 0 0 0 3.02 0c.48-.28 2.1-0.79 3.96-2.65.34-.35.63-1.27 1.38-2.02 1.5-1.26 2-5 2-5s-3.74.5-5 2c-.75.75-1.042 1.67-1.38 2.02-1.86 1.86-3.48 2.37-3.96 2.65a2.14 2.14 0 0 0-3.02 0c-.48.28-2.1.79-3.96 2.65-.34.35-.63 1.27-1.38 2.02Z"/></svg>
+                        Experience
+                    </h2>
+                    <div class="experience-item">
+                        <h3>Student</h3>
+                        <p>Vishwa Bharati Public School, Noida | April 2010 – April 2025</p>
+                        <ul class="text-sm text-gray-300">
+                            <li>Demonstrated academic excellence (2013-15, 2021-23) and achieved Class Rank 1 five times.</li>
+                            <li>Secured wins in multiple recognized Olympiads (SOF, NSEA, SOC, IHO) and achieved an under 30 rank in IHO 2018.</li>
+                            <li>Led and managed academic and sports initiatives, showcasing diverse leadership and organizational skills.</li>
+                            <li>Developed and hosted inter-school competitions over 3 years in Theoretical Computer Science, Cryptography, Graphic Design, Game Theory, and Code Development.</li>
+                            <li>Served as Project Developer and Event Incharge for inter-school competitions, overseeing team management, compering, and commentary.</li>
+                            <li>Represented the school in district-level Hindi Poetry Competitions, securing 2 wins (2022, 2024), and achieved Rank 2 in the National Level Heritage Quiz.</li>
+                            <li>Honed competitive skills in anchoring, oration, debate, declamation, and poetry in both Hindi and English.</li>
+                            <li>Co-Headed and designed the Official School Magazine, "Bits and Bytes" (2022 Editions 1 & 2), and intricately crafted backdrops for various school events.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Creative Writer</h3>
+                        <p>Noida, Uttar Pradesh, India | July 2021 – December 2024</p>
+                        <ul class="text-sm text-gray-300">
+                            <li>Authored articles, essays, scripts, dialogues, and poetry in English and Hindi, consistently contributing to Vishwa deep Magazines.</li>
+                            <li>Achieved recognition for 3 write-ups in 'Pariksha pe Charcha' (PM Shri Narendra Modi initiative) and 2 for 'Petroleum Conservation Resource Association' (PCRA).</li>
+                            <li>Wield strong command over pure Hindi, regional dialects, and Urdu/Persian, demonstrated in plays, articles, and intense debates.</li>
+                            <li>Published 2 winning writeups: 'A Permafrost in Petersburg' (2021) and 'Tears of Wind' (2024).</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Event Designer</h3>
+                        <p>Noida, Uttar Pradesh, India | August 2020 – August 2024</p>
+                        <ul class="text-sm text-gray-300">
+                            <li>Orchestrated immersive event symphonies, integrating Event Planning, Video Direction, Graphic and Motion Design, Editing Crafts, and Team Management.</li>
+                            <li>Consistently infused curiosity and amplified event impact through intricate and fantastical visual experiences.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Orator | Playwright | Dramatist</h3>
+                        <p>May 2020 – July 2024</p>
+                        <ul class="text-sm text-gray-300">
+                            <li>Honed craft as an orator and playwright, embodying characters and unveiling narratives in theatrical productions.</li>
+                            <li>Played the enigmatic protagonist in "The Winter's Shadow" (poetry drama), ranking 5th out of 23 schools.</li>
+                            <li>Readapted and reinterpreted Duryodhana's role for Annual Day 2K21 (युगद्रष्टा), garnering over 6,700 views.</li>
+                            <li>Co-hosted the Middle Department (Hindi) segment for Annual Day 2020 (नवोन्मेष), amassing over 3,700 views.</li>
+                            <li>Served as Senior Playwright for the Hindi Theatrical Club (25+ members) for 3 plays, with experience in lead/supporting roles and post-production.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Senior Project and Team Lead (Enovators Club)</h3>
+                        <p>Noida, Uttar Pradesh, India | May 2024 – August 2024</p>
+                        <ul class="text-sm text-gray-300">
+                            <li>Led a team of 7 students as Event Incharge and project head to create "Project Echus Stellarum," a roleplay cryptography event with custom script, backdrop, characters, and voice artists.</li>
+                            <li>This event was the highlight of Enovators 2k24.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Graphic Designer (Freelance)</h3>
+                        <p>Noida, Uttar Pradesh, India | May 2022 – August 2024</p>
+                        <ul class="text-sm text-gray-300">
+                            <li>Versatile freelance Graphic Designer crafting visually compelling artworks across various mediums and styles.</li>
+                            <li>Co-Head and Designer for the Official School Magazine, "Bits and Bytes" (2022 Editions 1 & 2).</li>
+                            <li>Designed trailers for "Echus Stellarum" and "Brainiac Battle," thumbnail designs, and intricate backdrops for school events (Annual Day 2K23, Enovators 2K23).</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Social Media Marketing Specialist</h3>
+                        <p>April 2024 – August 2024</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Senior Project Developer | Project Lead</h3>
+                        <p>Noida, Uttar Pradesh, India | September 2023 – November 2023</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Writer (Reedsy)</h3>
+                        <p>March 2021 – May 2023</p>
+                        <ul class="text-sm text-gray-300">
+                            <li>Published 2 winning writeups: 'A Permafrost in Petersburg' (2021) and 'Tears of Wind' (2024).</li>
+                            <li>Other notable works include 'Letters from the Front' and 'The Black Gold'.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Researcher (HistoryGuru)</h3>
+                        <p>May 2022 – June 2022</p>
+                    </div>
+                </section>
+                <section class="mb-8">
+                    <h2 class="section-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M21.43 14.83c.89-.63 1.16-1.63.76-2.5L14.83 5.7c-.63-.89-1.63-1.16-2.5-.76L3.2 9.24c-.89.63-1.16 1.63-.76 2.5l6.39 6.38c.63.89 1.63 1.16 2.5.76l8.93-3.57Z"/><path d="M8.5 10.5v7"/><path d="M15.5 12.5v5"/><path d="M12 7.5v9"/></svg>
+                        Education
+                    </h2>
+                    <div class="education-item">
+                        <h3>Class 12</h3>
+                        <p>Vishwa Bharati Public School, Noida | April 2009 – May 2025</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Self Study | Non Credit Coursework, Theoretical and Mathematical Physics</h3>
+                        <p>Massachusetts Institute of Technology | April 2024 – July 2025</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
